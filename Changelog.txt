@@ -1,0 +1,8 @@
+12/8/23 01:50   Implemented experience/leveling up after defeating an enemy pokemon in calculate_xp().
+12/8/23 11:04   Added pokemon_evolutions.csv to files being parsed into the database so the data can be used for evolutions
+12/8/23 13:44   Finished fleshing out level-up and learning new moves/forgetting moves to make room in level_up() and forget_move()
+12/8/23 16:54   Used data parsed in from pokemon_evolutions.csv to find Pokemon evolution lines and assign data to Pokemon to check for evolution on level-up
+12/8/23 19:47   Wrote calculate_damage() method to streamline damage calculation and hopefully solve some of the calculation errors from the last assignment
+12/8/23 19:50   Reduced MIN_TRAINERS to 4 to make catching Pokemon without getting accosted by trainers slightly easier
+12/8/23 21:09   Implemented evolve() method to calculate new stats for evolved pokemon and update their information.
+12/8/23 21:35   Fixed a bug causing Pokemon to not evolve if they leveled up before the last Pokemon in a trainer battle fainted, but didn't level up again after the final enemy Pokemon fainted.
