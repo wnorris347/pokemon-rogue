@@ -1164,6 +1164,7 @@ game_pokemon generate_pokemon(){
 
   
   //Won't ever set to after the index of the moves, but reduces amount of time spent searching through the db
+  //TODO: Implement binary search to reduce overhead
   index = &pokemon_moves[wild.id];
   while(index && index->pokemon_id <= wild.id){
     if(index->pokemon_id == wild.id && index->pokemon_move_method_id == 1 && std::find(move_ids.begin(), move_ids.end(), index->move_id) == move_ids.end()){
