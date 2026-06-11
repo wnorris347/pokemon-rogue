@@ -1,7 +1,6 @@
 #include <cstdio>
 #include <cstring>
 #include <cstdlib>
-#include <sys/stat.h>
 #include <climits>
 #include <fstream>
 #include <iostream>
@@ -71,33 +70,16 @@ void db_parse(bool print)
   char line[800];
   int i;
   char *tmp;
-  struct stat buf;
   char *prefix;
   int prefix_len;
   int j;
   int count;
-  
-  i = (strlen(getenv("HOME")) +
-       strlen("/.poke327/pokedex/pokedex/data/csv/") + 1);
-  prefix = (char *) malloc(i);
-  strcpy(prefix, getenv("HOME"));
-  strcat(prefix, "/.poke327/pokedex/pokedex/data/csv/");
 
-  if (stat(prefix, &buf)) {
-    free(prefix);
-    prefix = NULL;
-  }
-
-  if (!prefix && !stat("/share/cs327", &buf)) {
-    prefix = strdup("/share/cs327/pokedex/pokedex/data/csv/");
-  } else if (!prefix) {
-    // Your third location goes here, if needed.
-    // prefix is freed later, so be sure you malloc it
-  }
+  prefix = strdup("data/csv/");
+  prefix_len = strlen(prefix);
 
   //No error checking on file load from here on out.  Missing
   //files are "user error".
-  prefix_len = strlen(prefix);
 
   prefix = (char *) realloc(prefix, prefix_len + strlen("pokemon.csv") + 1);
   strcpy(prefix + prefix_len, "pokemon.csv");
